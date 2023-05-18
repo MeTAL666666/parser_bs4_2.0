@@ -1,0 +1,223 @@
+body{
+	position:relative;
+	background: #E1E0DA;
+}
+/*Стиль заголовка*/
+body h2 {
+	color: #555555;
+	position: relative;
+	left:55px;
+	width: 1800px;
+	text-shadow: rgb(15,153,84, 30%) 0px 0px 0px, rgb(15,153,84, 30%) -1px -1px 1px, 
+                 rgb(15,153,84, 30%) 0px 0px 0px, rgb(15,153,84, 30%) 1px -1px 1px;
+}
+/*Общий стиль для таблицы*/
+.sortable {
+	width:1800px; border-top:1px solid #4B8D70; border-bottom:none; margin:0 auto 15px; border-collapse:separate;
+    border:solid #4B8D70 1px;
+    border-radius:20px;
+    box-shadow: 0 0 2rem rgb(0, 70, 20, 100%);
+}
+/*Стиль для левого столбца заголовков таблицы*/
+.sortable th:first-child {
+	border-top-left-radius: 20px;
+}
+/*Стиль для правого столбца заголовков таблицы*/
+.sortable th:last-child {
+	border-top-right-radius: 20px;
+	border-right: 1px solid #E5E5E5;
+}
+/*Стиль для последней строки левого столбца*/
+.sortable tr:last-child td:first-child {
+	border-radius: 0 0 0 20px;
+	border-left: none;
+}
+/*Стиль для последней строки правого столбца*/
+.sortable tr:last-child td:last-child {
+	border-radius: 0 0 20px 0;
+	border-right: none;
+}
+/*Стиль для первой и последней строк таблицы(не включая заголовки)*/
+.sortable tr td:last-child {
+	border-right: none;
+}
+
+.sortable tr td:first-child{
+	border-left: none;
+}
+
+.sortable tr td:last-child{
+	border-right: none;
+}
+/*Стиль для каждого из элементов таблицы
+- заголовки
+- текст заголовков
+- строки
+- изображения в строках
+- выделение заголовков цветом при сортировке
+- цвет текста заголовков при сортировке
+- выделение заголовков при наведении курсора
+- фон строк при сортировке
+- фон столбцов при сортировке
+*/
+.sortable th {position: sticky; top: 0;background:url(../static/images/header-bg_avito.gif); text-align:left; color:#cfe7dc; border:1px solid #E5E5E5; border-right:none; }
+.sortable th h3 {position: sticky; top: 0;font-weight: bold; font-size:20px; padding:6px 8px 8px}
+.sortable td {background:#E5E5E5; font-size:20px; padding:4px 6px 6px; border-bottom:1px solid #4B708D; border-right: none}
+.sortable td img {border-radius: 10px; border: 5px #599873 solid; box-shadow: 0 0 10px #4B8D67; margin-bottom: -3px;}
+.sortable .head h3 {background:url(../static/images/sort.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .desc, .sortable .asc {background:url(../static/images/header-selected-bg_avito.gif)}
+.sortable .desc h3 {background:url(../static/images/desc.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .asc h3 {background:url(../static/images/asc.gif) 7px  center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .head:hover, .sortable .desc:hover, .sortable .asc:hover {color:#fff}
+.sortable .evenrow td {background:#E5E5E5}
+.sortable .oddrow td {background:#E5E5E5}
+.sortable td.evenselected {background:#dceee6}
+.sortable td.oddselected {background:#dceee6}
+
+/*Стиль для индикаторов сортировки в шапке таблицы*/
+.go-up, .go-down {
+ 	display: none;
+ 	position: fixed;
+ 	z-index: 9999; 
+ 	left: 1px;
+ 	background: #4F4F4F;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	font: normal normal 42px/42px sans-serif;
+	text-shadow: 0 1px 2px #000;
+	opacity: .6;
+	padding: 3px;
+	margin-bottom: 5px;
+	width: 42px;
+	height: 42px;
+}
+
+.go-up { bottom: 70px; }
+.go-down { bottom: 10px; }
+.go-down:hover,
+.go-up:hover {
+ 	opacity: 1;
+ 	box-shadow: 0 5px 0.5em -1px #666;
+}
+
+button:active:enabled {
+	transform: scale(0.97);
+ 	box-shadow:inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+    				 0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Стиль для кнопки возврата на главную страницу*/
+.to_index{
+	vertical-align: middle;
+	position: relative;
+	left:1590px;
+	top:5px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	text-shadow: #0D9B6B 1px 1px 9px, #0D9B6B -1px -1px 9px, 
+                 #0D9B6B -1px 1px 9px, #0D9B6B 1px -1px 9px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	font-size: 1.5rem;
+	border: 4px solid #0D9B6B;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	cursor:pointer;
+}
+
+.to_index:hover {
+ 	position: relative;
+ 	vertical-align: middle;
+	left:1590px;
+	top:5px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	font-size: 1.5rem;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 4px solid #0D9B6B;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 1rem rgb(13, 155, 107, 100%);
+}
+/*Стиль для кнопки выгрузки в .XLS*/
+.to_xls{
+	vertical-align: middle;
+	position: absolute;
+	left:55px;
+	top:7px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	text-shadow: green 1px 1px 8px, green -1px -1px 8px, 
+                 green -1px 1px 8px, green 1px -1px 8px;
+	transition: all 300ms ease;
+	font-size: 1.5rem;
+	border: 4px solid green;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	cursor:pointer;
+}
+
+.to_xls:hover {
+ 	vertical-align: middle;
+	position: absolute;
+	left:55px;
+	top: 7px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	font-size: 1.5rem;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 4px solid green;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 1rem green;
+}
+/*Стиль для кнопки выгрузки в .CSV*/
+.to_csv{
+	vertical-align: middle;
+	position: absolute;
+	left:420px;
+	top:7px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	text-shadow: #D67200 1px 1px 8px, #D67200 -1px -1px 8px, 
+                 #D67200 -1px 1px 8px, #D67200 1px -1px 8px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	font-size: 1.5rem;
+	border: 4px solid #D67200;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	cursor:pointer;
+}
+
+.to_csv:hover {
+ 	vertical-align: middle;
+	position: absolute;
+	left:420px;
+	top: 7px;
+	background: #AAAAAA;
+	background: radial-gradient(circle, #EEEEEE, #DDDDDD, #CCCCCC);
+	color: white;
+	font-size: 1.5rem;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 4px solid #D67200;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 1rem #D67200;
+}

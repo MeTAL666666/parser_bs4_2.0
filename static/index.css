@@ -1,0 +1,150 @@
+/*Общие значения для всех элементов*/
+*{
+	margin: 0;
+	font-family: Rubik;
+	color: rgb(255 255 255);
+	-webkit-font-smoothing: antialiased;
+
+}
+/*Отключение прокрутки страницы*/
+html {
+	font-size: 62,5%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+/*Темный фон при загрузке страницы*/
+body{
+	background:  #0B524B;
+}
+/*Расположение элементов на странице*/
+.container{
+	display: flex;
+	min-height:100vh;
+	text-align : center;
+	place-items: center;
+	place-content:center;
+	background: url(../static/images/background_index.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+/*Отключение возможности взаимодействия с изображениями*/
+img{
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+/*Стиль для кнопки перехода к Avito*/
+.to_avito{
+	position: absolute;
+	left: -30px;
+	top:440px;
+	rotate:-13deg;
+	width:730px;
+	height:200px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+
+}
+/*Добавление элементов анимации под кнопкой*/
+.to_avito:before {
+	content:'';
+	position:absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width:50%;
+}
+
+
+.to_avito span:nth-child(1) {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 5px;
+	background:linear-gradient(to right,#0A4129,#26B77E);
+	animation:animate_avito 10s linear infinite;
+}
+
+
+@keyframes animate_avito {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;}
+    25% {transform: translateX(0%);
+        opacity: 1;}
+
+    50% {transform: translateX(120%);
+        opacity: 0;}
+
+    75% {transform: translateX(0%);
+        opacity: 1;}
+
+    100% {
+        transform: translateX(-108%);
+        opacity: 0;}
+}
+/*Стиль для кнопки перехода к Bazarpnz*/
+.to_bazarpnz{
+	position: absolute;
+	top:440px;
+	right: -70px;
+	rotate:11deg;
+	width:750px;
+	height:200px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+/*Добавление элементов анимации под кнопкой*/
+.to_bazarpnz:before {
+	content:'';
+	position:absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width:50%;
+}
+
+.to_bazarpnz span:nth-child(1) {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 5px;
+	background:linear-gradient(to left,#074645,#38B3BA);
+	animation:animate_bazarpnz 10s linear infinite;
+}
+
+@keyframes animate_bazarpnz {
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;}
+    75% {transform: translateX(0%);
+        opacity: 1;}
+
+    50% {transform: translateX(120%);
+        opacity: 0;}
+
+    25% {transform: translateX(0%);
+        opacity: 1;}
+    0% {
+        transform: translateX(-108%);
+        opacity: 0;}
+}

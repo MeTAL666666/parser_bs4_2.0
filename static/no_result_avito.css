@@ -1,0 +1,311 @@
+/*Общий стиль для всех элементов*/
+*{
+	margin: 0;
+	font-family: Rubik;
+	color: rgb(255 255 255);
+	-webkit-font-smoothing: antialiased;
+}
+/*Скрытие прокрутки*/
+html {
+	font-size: 62,5%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+
+}
+/*Темный фон при загрузке страницы*/
+body{
+	background: #0B422B;
+}
+/*Расположение элементов на странице*/
+.container{
+	min-height:100vh;
+	background: url(../static/images/background_no_result_avito.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+/*Стиль для заголовка*/
+#text {
+	position: absolute;
+	padding: 150px 20px 50px 0px;
+	text-align: center;
+	text-overflow: ellipsis;
+  	user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+#text h1 {
+	font-size: 80px;
+	font-weight: 600;
+	font-family: 'Roboto', sans-serif;
+	color: #BBBBBB;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 1px 2px 2px #04895D,
+	           1px 3px 3px #04895D,
+	           1px 4px 4px #04895D,
+	           1px 5px 5px #04895D,
+	           1px 6px 6px #04895D,
+	           1px 7px 7px #04895D,
+	           1px 13px 5px rgba(0, 0, 0, 0.9),
+	           1px 18px 10px rgba(0, 0, 0, 0.7),
+	           1px 23px 30px rgba(0, 0, 0, 0.5),
+	           1px 28px 50px rgba(0, 0, 0, 0.3); 
+}
+/*Стиль для текста запроса*/
+#text p {
+	position: relative;
+	overflow: hidden;
+	font-size: 80px;
+	font-weight: 600;
+	font-family: 'Roboto', sans-serif;
+	color: #BBBBBB;
+	text-align: center;
+	width: 1850px;
+	height: 100px;
+	margin:0 20px 0px 20px;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	text-shadow: 1px 2px 2px #04895D,
+	           1px 3px 3px #04895D,
+	           1px 4px 4px #04895D,
+	           1px 5px 5px #04895D,
+	           1px 6px 6px #04895D,
+	           1px 7px 7px #04895D,
+	           1px 13px 5px rgba(0, 0, 0, 0.9),
+	           1px 18px 10px rgba(0, 0, 0, 0.7),
+	           1px 23px 30px rgba(0, 0, 0, 0.5),
+	           1px 28px 50px rgba(0, 0, 0, 0.3);
+}
+/*Стиль и анимация для появляющего окна об ошибке региона*/
+#info{
+	width: 420px;
+	font-size: 1.6rem;
+	vertical-align: middle;
+	position:absolute;
+	padding: 20px 20px 20px 0;
+	top:510px;
+	right:35px;
+	font-family: Rubik;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+	vertical-align: middle;
+	color: #FFFFFF;
+	background-color: #021E19;
+	text-shadow: #000 -1px -1px 0, #333 1px 1px 0;
+	border-radius: calc(5.8rem * 0.3);
+	opacity: 0;
+	-webkit-animation: info;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-fill-mode: forwards;
+	pointer-events: none;
+}
+
+@-webkit-keyframes  info {
+	from {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(600px,0px);
+  	}
+  	to {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(150,0px);
+  	}
+}
+
+/*Изображение робота*/
+#robot{
+	position: relative; 
+	top: 390px; 
+	left:31%;
+	opacity: 0.9;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+/*Кнопка повторого запроса*/
+button {
+	width:420px;
+	position: relative;
+	z-index: 1;
+	vertical-align: middle;
+	text-align: right;
+	right:-74%;
+	top: 1.4%;
+	background: #B50000;
+	color: white;
+	font-size: 1.8rem;
+	margin: 30px;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	overflow: hidden;
+	-webkit-animation: button_one;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes  button_one {
+	from {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,300px);
+  	}
+  	to {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+}
+
+/*Стиль при наведении на кнопку повторого запроса*/
+button:hover {
+	position: relative;
+ 	vertical-align: middle
+	right:-74%;
+	top: 1.4%;
+	background: #DC0000;
+	color: white;
+	font-size: 1.8rem;
+	margin: 30px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(220, 0, 0, 100%);
+}
+/*Стиль нажатия на кнопку повторого запроса*/
+button:active {
+	transform: scale(0.97);
+ 	box-shadow: inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+   					  0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Кнопка возврата на главную страницу*/
+.to_index{
+	width:420px;
+	z-index: 1;
+	vertical-align: middle;
+	position: relative;
+	left:75.5%;
+	top: 1.5%;
+	text-align: right;
+	background: linear-gradient(90deg,#137D55,#0C7393);
+	color: white;
+	border-left: 0 solid transparent;
+	font-size: 1.8rem;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	cursor:pointer;
+	-webkit-animation: button_two;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes  button_two {
+	from {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,400px);
+  	}
+  	to {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+}
+
+.to_index:hover {
+	background: linear-gradient(90deg,#179364,#107EB5);
+	color: white;
+	font-size: 1.8rem;
+	margin: : 30px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(16, 181, 126, 100%);
+}
+
+.to_index:active {
+	transform: scale(0.97);
+  	box-shadow:inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+    				 0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Кнопка перехода к другому поисковику*/
+.to_bazarpnz{
+	text-align: right;
+	width:420px;
+	z-index: 1;
+	position: relative;
+	top:30px;
+	left:75.5%;
+	background: #0C7393;
+	color: white;
+	border-left: 0 solid transparent;
+	font-size: 1.8rem;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	cursor:pointer;
+	-webkit-animation: button_three;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes  button_three {
+	from {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,500px);
+  	}
+  	to {
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+}
+
+.to_bazarpnz:hover {
+	background: #107EB5;
+	color: white;
+	font-size: 1.8rem;
+	margin: : 30px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem #107EB5;
+}
+
+.to_bazarpnz:active {
+	transform: scale(0.97);
+  	box-shadow:inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+    				 0 0 6px rgba(9, 90, 90, 0.4);

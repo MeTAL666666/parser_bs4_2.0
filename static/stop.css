@@ -1,0 +1,122 @@
+/*Добавление шрифта для таймера*/
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../static/digital-dream.regular.ttf');
+}
+/*Темный фон*/
+body{
+	background-color: black;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	user-drag: none;
+    -webkit-user-drag: none;
+    overflow: hidden;
+}
+/*Основной стиль для элементов блока таймера*/
+.loading{
+    position: absolute;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+/*Стиль для анимации таймера*/
+.loading img{
+    opacity: 0;
+	display:block;
+	margin:auto;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	user-drag: none;
+    -webkit-user-drag: none;
+    -webkit-animation-name: timer;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+}
+/*Стиль и анимация для текста об остановке парсера*/
+.loading p{
+	font-size: 42px;
+	text-align: center;
+	opacity: 0;
+	color: #a0a0a0;
+	text-shadow: rgb(200,200,200, 10%) 1px 1px 1px, rgb(200,200,200, 10%) -1px -1px 1px, 
+                 rgb(200,200,200, 10%) -1px 1px 1px, rgb(200,200,200, 10%) 1px -1px 1px;
+	position: absolute;
+	bottom:0;
+	display:block;
+	margin:auto;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	user-drag: none;
+    -webkit-user-drag: none;
+    -webkit-animation-name: appearance;
+    -webkit-animation-duration: 9s;
+  	-webkit-animation-delay: 0.5s;
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-timing-function: linear;
+  	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes  appearance {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.7;
+    }
+    95% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0; 
+    }
+}
+/*Стиль и анимация для таймера*/
+#base-timer-label {
+	font-family:'digital-clock-font';
+	font-weight: bold;
+	position: relative;
+	left: 0;
+	opacity: 0;
+    background-color: transparent;
+    color:#a0a0a0;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    -webkit-user-drag: none;
+    -webkit-animation-name: timer;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes timer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
