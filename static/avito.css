@@ -1,0 +1,684 @@
+/*Общие значения для всех элементов*/
+*{	
+	font-size: 1.6rem;
+	margin: 0;
+	font-family: Rubik;
+	color: rgb(255 255 255);
+	-webkit-font-smoothing: antialiased;
+}
+/*Отключение прокрутки страницы*/
+html {
+	font-size: 62,5%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+/*Темный фон при загрузке страницы*/
+body{
+	background: #0B422B;
+}
+/*Расположение элементов на странице*/
+.container{
+	display: flex;
+	min-height:100vh;
+	text-align : center;
+	place-items: center;
+	place-content:center;
+	background: url(../static/images/background_avito.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+}
+
+form{
+	display: grid;
+	grid-gap: 2rem;
+	padding-bottom: 22rem;
+}
+/*Стиль и анимация для окон ввода*/
+input {
+	z-index: 2;
+	position: relative;
+	background: white;
+	color: rgb(7 2 18);
+	border-left: 0 solid transparent;
+	font-size: 1.5rem;
+	border: 0;
+	opacity: 0;
+	height: 3.5rem;
+	padding: 0 calc(6rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+  	-webkit-animation: input 600ms ease-out;
+  			animation: input 600ms ease-out;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes input {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/*Дополнение для окна ввода региона*/
+.regions{
+	position: relative;
+	top:15px;
+}
+/*Вид заблокированного окна ввода региона*/
+#regions[readOnly]{
+	transition: all 300ms ease;
+	outline: 3px solid #999999; 
+  	background-color: #cccccc;
+  	color: #666666;
+  	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+  	pointer-events: none;
+}
+/*Стиль и анимация для кнопки запуска*/
+button {
+	position: relative;
+	z-index: 1;
+	vertical-align: middle;
+	right:2%;
+	top: 1.4%;
+	background: red;
+	color: white;
+	font-size: 1.5rem;
+	margin: 30px;
+	opacity: 0;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	overflow: hidden;
+  	-webkit-animation: button_ 600ms ease-out;
+  			animation: button_ 600ms ease-out;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-delay:0.2s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes button_ {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+
+    }
+}
+
+/*Стиль для заблокированной кнопки запуска*/
+button[disabled]{
+	vertical-align: middle;
+  	border: 0px solid #999999;
+  	background-color: #cccccc;
+  	color: #666666;
+  	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+  	pointer-events: none;
+}
+/*Анимация для кнопки запуска*/
+button:enabled{
+	transition: all 300ms ease;
+}
+button:before:enabled {
+	content:'';
+	position:absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width:50%;
+	background: rgba(255,255,255,0.05);
+}
+
+button:enabled span:nth-child(1) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background:linear-gradient(to left,#FF0000,#DDDDDD);
+	animation:animateTop 3.5s linear infinite;
+}
+
+button:enabled span:nth-child(2) {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background:linear-gradient(to right,#FF0000,#DDDDDD);
+	animation:animateBottom 3.5s linear infinite;
+
+}
+
+@keyframes animateTop {
+    0% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
+@keyframes animateBottom {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+/*Стиль при наведении курсора на кнопку запуска*/
+button:hover:enabled {
+	position: relative;
+ 	vertical-align: middle
+	right:24%;
+	top: 1.4%;
+	background: red;
+	color: white;
+	font-size: 1.5rem;
+	margin: 30px;
+	border-left: 0 solid transparent;
+	transition: all 300ms ease;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(255, 0, 0, 100%);
+}
+/*Нажатие на кнопку запуска*/
+button:active:enabled {
+	transition: all 300ms ease;
+	transform: scale(0.97);
+ 	box-shadow: inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+   					  0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Стиль добавленного класса для кнопки запуска*/
+.first_clicked	{
+	position: relative;
+	right:2%;
+	top: 1.35%;
+	background: white;
+	color: black;
+	font-size: 1.5rem;
+	margin: 30px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	overflow: hidden;
+}
+/*Анимация для добавленного класса для кнопки запуска*/
+.first_clicked:after {
+	position: absolute;
+    content: "";
+    top: 0;
+    height: 100%;
+    width: 45px;
+    transform: skewX(45deg); // Наклон
+    animation: flareAnimation;
+    right: -150%;
+    background: linear-gradient(90deg, rgba(29, 202, 136, 0.3), rgba(29, 202, 136, 0.15));
+    animation: flareAnimation 3.5s infinite linear; 
+}
+
+@keyframes flareAnimation {
+    0% {
+        right: -150%;
+    }
+    100% {
+        right: 150%;
+    }
+}
+
+.first_clicked:hover:enabled {
+	position: relative;
+	right:2%;
+	top: 1.35%;
+	background: white;
+	color: black;
+	font-size: 1.5rem;
+	margin: -2 2 0 12;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(255, 0, 0, 100%);
+}
+
+.first_clicked:active:enabled {
+	transform: scale(0.97);
+  	box-shadow: 
+    inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+    0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Стиль и анимация кнопки для возврата на главную страницу*/
+.to_index{
+	z-index: 1;
+	vertical-align: middle
+	position: relative;
+	left:-1.5%;
+	top: 1.5%;
+	background: #44B25e;
+	color: white;
+	opacity: 0;
+	border-left: 0 solid transparent;
+	font-size: 1.5rem;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+	cursor:pointer;
+  	-webkit-animation: button_ 600ms ease-out;
+  			animation: button_ 600ms ease-out;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-delay: 0.2s;
+	-webkit-animation-fill-mode: forwards;
+}
+/*Стиль заблокированной кнопки для возврата на главную страницу*/
+.to_index[disabled]{
+	transition: all 300ms ease;
+  	border: 1px solid #999999;
+  	background-color: #cccccc;
+  	color: #666666;
+  	box-shadow: 0 0 2rem rgb(0, 0, 0, 80%);
+  	pointer-events: none;
+}
+
+.to_index:hover:enabled {
+	background: #44B25e;
+	color: white;
+	font-size: 1.5rem;
+	margin: : 30px;
+	transition: all 300ms ease;
+	border-left: 0 solid transparent;
+	border: 0;
+	height: 3.5rem;
+	padding: 0 calc(5.8rem * 0.5);
+	border-radius: calc(5.8rem * 0.3);
+	box-shadow: 0 0 2rem rgb(0, 70, 20, 100%);
+}
+
+.to_index:active:enabled {
+	transform: scale(0.97);
+  	box-shadow:inset 0 4px 0 rgba(9, 90, 90, 0.2), 
+    				 0 0 6px rgba(9, 90, 90, 0.4);
+}
+/*Стиль для заголовка «ПОИСК ОБЪЯВЛЕНИЙ», изображения робота и эффектов*/
+.main_lable {
+  	padding: 240px 20px 50px 0px;
+  	text-align: center;
+}
+
+.main_lable img{
+	margin: 0px;
+	width: 100%;
+  	height: 100%;
+  	border-radius: 50%;
+  	-webkit-transition: all 0.5s ease;
+          	transition: all 0.5s ease;
+}
+
+.main_lable label{
+	z-index: 10;
+	width: 100%;
+  	height: 100%;
+  	border-radius: 50%;
+  	-webkit-transition: all 0.5s ease;
+          	transition: all 0.5s ease;
+}
+
+.main_lable label:hover ~ img {
+
+	user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition: all 0.5s ease;
+          	transition: all 0.5s ease;
+  	-webkit-transform: rotate(-2deg); /* Градусы поворота можно изменить по необходимости */
+            transform: rotate(-2deg); /* Градусы поворота можно изменить по необходимости */
+}
+
+.main_lable h1 {
+	font-size: 80px;
+	font-weight: 600;
+	font-family: 'Roboto', sans-serif;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-shadow: 1px 2px 2px #05CC8C,
+	             1px 3px 3px #05CC8C,
+	             1px 4px 4px #05CC8C,
+	             1px 5px 5px #05CC8C,
+	             1px 6px 6px #05CC8C,
+	             1px 7px 7px #05CC8C,
+	             1px 13px 5px rgba(0, 0, 0, 0.9),
+	             1px 18px 10px rgba(0, 0, 0, 0.7),
+	             1px 23px 30px rgba(0, 0, 0, 0.5),
+	             1px 28px 50px rgba(0, 0, 0, 0.3);
+}
+/*Анимация появления робота*/
+.robot_anim{
+	position: absolute;
+	width: 25%;
+  	height: 50%;
+  	top:-940px;
+  	left: -102px;
+	filter: drop-shadow(-45px 10px 35px #111111);
+  	-webkit-animation: robot 1.15s ease-out;
+  			animation: robot 1.15s ease-out;
+  	-webkit-animation-delay:0.3s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes robot {
+    0% {
+        -webkit-transform: translate(0px,400px);
+    }
+    100% {
+        -webkit-transform: translate(0px,850px);
+    }
+}
+
+.robot_anim label {
+	display: block; 
+	position: absolute;
+}
+
+input[type="checkbox"] + span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none; 
+	cursor: pointer;
+}
+/*Если нажат чекбокс, показать изображение*/
+input[type="checkbox"]:checked + span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background: url(../static/images/switch.png) no-repeat;
+	cursor: pointer;
+ 	-webkit-animation: checked;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes checked {
+    0% {
+        opacity: : 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*Стиль и анимация для поднимающегося окна, отображающего режим поиска*/
+.search_mode_up{
+	width: 500px;
+	font-size: 35px;
+	vertical-align: middle;
+	position:absolute;
+	cursor:help;
+	padding: 5px 20px 20px 0;
+	top:335px;
+	left:36.4%;
+	font-family: Rubik;
+	-webkit-font-smoothing: antialiased;
+	color: #FFFFFF;
+	background-color: #021E19;
+	text-shadow: #000 -1px -1px 0, #333 1px 1px 0;
+	border-radius: 20px 20px 0 0;
+	opacity: 0;
+	-webkit-animation: search_mode_up;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay: 0.5s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes  search_mode_up {
+	from {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,50px);
+  	}
+  	to {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,0px);
+  	}
+}
+/*Стиль и анимация для опускающегося окна, отображающего режим поиска*/
+.search_mode_down{
+	width: 500px;
+	font-size: 35px;
+	vertical-align: middle;
+	background-color: white; 
+	position:absolute;
+	cursor:help;
+	padding: 5px 20px 20px 0;
+	top:335px;
+	left:36.4%;
+	font-family: Rubik;
+	-webkit-font-smoothing: antialiased;
+	color: #FFFFFF;
+	background-color: #021E19;
+	text-shadow: #000 -1px -1px 0, #333 1px 1px 0;
+	border-radius: 20px 20px 0 0;
+	opacity: 0.8;
+	-webkit-animation: search_mode_down;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes  search_mode_down {
+	from {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,0px);
+  	}
+	to {
+  		opacity: 0.7;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,50px);
+  		}
+}
+/*Стиль окна информирующего о начале парсинга*/
+.search_text_anim {
+	position: relative;
+	font-family: Rubik;
+	-webkit-font-smoothing: antialiased;
+	color: #FFFFFF;
+	background-color: #021E19;
+	text-shadow: #000 -1px -1px 0, #333 1px 1px 0;
+	border-radius: 20px 20px 0 0;
+	font-size: 30px;
+	bottom:0;
+	opacity: 0;
+	left:0%;
+	user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  	-webkit-animation-name: cssAnimation;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	pointer-events: none;
+}
+/*Отключение нажатий по окну*/
+.search_text_anim :hover{
+	user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+@-webkit-keyframes  cssAnimation {
+	from {
+  		opacity: 0.8;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,210px);
+  	}
+	to {
+  		opacity: 0.8;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0,80px);
+  	}
+}
+
+/*Стиль заблокированного поля для ввода запроса и запрет нажатия для смены режима поиска*/
+#what_search[readOnly]{
+	transition: all 300ms ease;
+	outline: 3px solid #999999;
+	background-color: #cccccc;
+  	color: #666666;
+  	pointer-events: none;
+  	-webkit-text-fill-color: #666666;
+  	-webkit-box-shadow: 0 0 0px 1000px #cccccc inset,
+  						0 0 2rem rgb(0, 0, 0, 80%);
+}
+
+.to_headlines[readOnly]{
+	pointer-events: none;
+}
+/*Стиль выпадающего списка регионов*/
+ul.content {
+	background-color: white;
+	color: black;
+	z-index: 3;
+	position: absolute;
+	top:577px;
+	left:669px;
+  	overflow-y: auto;
+  	overflow-x:hidden;
+  	opacity: 0;
+  	list-style-type: none;
+  	padding-left: 0;
+  	border: 0px solid #ddd;
+  	border-radius: 20px;
+  	margin-top: 0;
+  	user-select:none;
+  	user-drag:none;
+  	-webkit-animation-name: regionsAnimation_hidden;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+  	display: none;
+}
+
+@-webkit-keyframes  regionsAnimation_hidden {
+	from {
+  		max-height: 287px;
+  		width: 580px;
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+  	to {
+  		max-height: 0px;
+  		width: 580px;
+  		opacity: 0.2;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+}
+/*Стиль прокрутки внутри всплывающего списка регионов*/
+ul.content::-webkit-scrollbar {
+    width: 20px;
+}
+ 
+ul.content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,70,0,0.3);
+    height: 10px 
+    border-radius: 10px;
+}
+ 
+ul.content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,70,0,0.5); 
+}
+/*Стиль строки с названием региона внутри всплывающего списка*/
+li {
+	position: relative;
+	left:-5px;
+	font-size: 30px;
+	color: black;
+  	margin-left: 5px;
+  	padding-left: 15px;
+  	padding-top: 1.5px;
+  	padding-bottom: 3.5px;
+   	user-select:none;
+  	user-drag:none;
+}
+
+li:hover {
+	width: 97.3%;
+	text-shadow: darkgray 0px 0px 5px;
+	border-radius: 8px;
+	cursor: default;
+	color: black;
+  	background-color: rgba(68,178,94,0.5);
+  	user-select:none;
+}
+/*Анимация появления всплывающего списка регионов*/
+ul.content.visible {
+	-webkit-animation-name: regionsAnimation_visible;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	display:inline-block;
+}
+
+@-webkit-keyframes  regionsAnimation_visible {
+	from {
+  		max-height: 0px;
+  		width: 580px;
+  		opacity: 0.2;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+  	to {
+  		outline: 2px solid black;
+  		max-height: 295px;
+  		width: 580px;
+  		opacity: 1;
+    	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px,0px);
+  	}
+}
+/*Стиль для скрытия строк внутри всплывающего списка*/
+li.hidden {
+	display: none;
+}
